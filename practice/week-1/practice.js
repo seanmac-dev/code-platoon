@@ -58,14 +58,15 @@
 // let [a, b, c, d, e] = ['a', 'b', 'c', 'd', 'e']
 // console.log(e)
 
-function factorial(num) {
-    let product = 1;
+// function factorial(num) {
+//     let product = 1;
 
-    for (let i = num; i > 0; i--) {
-        product = product * i;
-    }
+//     for (let i = num; i > 0; i--) {
+//         product = product * i;
+//     }
 
-    return product;
-}
+//     return product;
+// }
 
-module.exports = factorial;
+// module.exports = factorial;
+
