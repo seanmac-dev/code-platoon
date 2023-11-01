@@ -1,0 +1,25 @@
+h1{
+    background-color:blue;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    border: 2px solid black;
+    margin: 5px
+}
+
+.top{
+    background-color: yellow;
+    height: 400px;
+    width: 400px;
+    border: 2px solid black;
+    margin: 10px
+}
+
+.checklist{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}

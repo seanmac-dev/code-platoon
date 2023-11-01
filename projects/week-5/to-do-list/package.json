@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "first_npm_project",
+  "version": "1.0.0",
+  "description": "This is my first npm project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node index.js"
+  },
+  "author": "seanmac85",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

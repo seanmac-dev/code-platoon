@@ -1,0 +1,71 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#top-img {
+  margin-top: 25px;
+}
+
+.logo {
+  height: 6em;
+  padding: .5em;
+  will-change: filter;
+  transition: filter 300ms;
+  border-radius: 50%;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #fdcf01aa);
+}
+
+button {
+  border-radius: 50%;
+}
+
+
+
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+img {
+  border-radius: 50%;
+}
+
+#pokemonImg1, #pokemonImg2, #pokemonImg3, #pokemonImg4, #pokemonImg5, #pokemonImg6 {
+  height: 200px;
+  width: 200px;
+}
+/* .background {
+  background-image: url("https://wallpapers.com/wallpapers/pokemon-stadium-1920-x-1080-wallpaper-n4vucrf9p26da65s.html?embed=true");
+  background-size: cover;
+} */
+
+/* body {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4DOPSAdhpYmfGb3OjesFpy_cSBq514XCMMg&usqp=CAU");
+  width: 800px;
+  height: 800px;
+} */
