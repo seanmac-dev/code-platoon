@@ -1,0 +1,71 @@
+#root {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  animation-name: opacity-ani;
+  animation-duration: 4s;
+}
+
+#enter-portal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  
+}
+
+@keyframes opacity-ani {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+#portal-img {
+    
+  animation-name: rotate-ani;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.portal-img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate-ani {
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+}
+
+#title {
+
+    animation-name: shadow-ani;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes shadow-ani {
+    from {opacity: 75%}
+    to {opacity: 100%}
+}
+
+.my-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* width: fit-content; */
+  
+}
+
+.i-card {
+  width: 300px;
+  margin-top: 10px;
+  padding: 0px;
+  border: solid 1px black;
+}
