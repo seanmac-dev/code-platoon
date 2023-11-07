@@ -3,7 +3,9 @@ import App from "./App"
 import HomePage from './pages/HomePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import CharactersPage from './pages/CharactersPage.jsx'
+import CharacterDetailsPage from './pages/CharacterDetailsPage'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import FavoritesPage from "./pages/FavoritesPage";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
             {
                 path: 'characters/',
                 element: <CharactersPage />
+            },
+            {
+                path: 'character/:id/',
+                element: <CharacterDetailsPage />
+            },
+            {
+                path: 'favorites/',
+                element: <FavoritesPage />
             }
         ],
         errorElement: <NotFoundPage />

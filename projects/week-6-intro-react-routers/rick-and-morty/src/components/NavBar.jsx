@@ -1,31 +1,17 @@
-// import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom'
 
-// function NavBar() {
-//   return (
-//     <Nav>
-//     {/* //   activeKey="/"
-//     //   onSelect={(selectedKey) => alert(`selected ${selectedKey}`)} */}
-    
-//       <Nav.Item>
-//         <Link to='/'>Home</Link>
-//       </Nav.Item>
-//       <Nav.Item>
-//         <Link to='about/'>About</Link>
-//       </Nav.Item>
-//       <Nav.Item>
-//         <Link to='characters/'>Characters</Link>
-//       </Nav.Item>
-//       {/* <Nav.Item>
-//         <Link to="disabled" disabled>
-//           Disabled
-//         </Link>
-//       </Nav.Item> */}
-//     </Nav>
-//   );
-// }
+const NavBar = ({favorites}) => {
+    return (
+        <nav>
+            <ul>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='about/'>About</Link></li>
+                <li><Link to='characters/'>All Characters</Link></li>
+                <li><Link to='favorites/'>Favorites {favorites.length}</Link></li>
+            </ul>
+        </nav>
 
-// export default NavBar;
+    )
+}
 
-{/* <li><Link to='/'>Home</Link></li>
-<li><Link to='about/'>About</Link></li>
-<li><Link to='characters/'>Characters</Link></li> */}
+export default NavBar;
