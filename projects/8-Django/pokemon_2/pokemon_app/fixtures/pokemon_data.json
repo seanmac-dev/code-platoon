@@ -1,0 +1,67 @@
+[
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 1,
+  "fields": {
+    "name": "Pikachu",
+    "level": 12,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-11-30T01:56:33.509Z",
+    "description": "Unknown",
+    "captured": true,
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 2,
+  "fields": {
+    "name": "Charizard",
+    "level": 25,
+    "date_encountered": "2007-04-07",
+    "date_captured": "2023-11-30T01:58:27.738Z",
+    "description": "Unknown",
+    "captured": true,
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 3,
+  "fields": {
+    "name": "Blastoise",
+    "level": 37,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-11-30T02:05:26.135Z",
+    "description": "Unknown",
+    "captured": false,
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 4,
+  "fields": {
+    "name": "Bulbasaur",
+    "level": 1,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-11-30T02:40:00.746Z",
+    "description": "Unknown",
+    "captured": false,
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 6,
+  "fields": {
+    "name": "Eevee",
+    "level": 25,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-11-30T03:32:26.067Z",
+    "description": "Unknown",
+    "captured": false,
+    "moves": []
+  }
+}
+]
