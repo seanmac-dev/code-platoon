@@ -1,28 +1,49 @@
 import Row from "react-bootstrap/Row"
-import { useEffect } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { api } from "../utilities";
 
 // TODO: make axios call to django api to get crypto data
 // using api/v1/crypto
 
 export const Crypto = () => {
-    const getAllCrypto = async () => {
-        console.log('getAllCrypto'); 
-        let response = await axios
-            .get("http://127.0.0.1:8000/api/v1/crypto/")   
-            .catch((err) => {                    
-                console.log('getAllCrypto err ', err);
-                // alert("getAllCrypto err");
-            })
-    }
+    const [crypto, setCrypto] = useState([]);
 
+    const getAllCrypto = async () => {
+        console.log('getAllCrypto works'); 
+        try {
+            let response = await api.get("v1/crypto/");
+            console.log(response.data);
+            setCrypto(response.data);
+        } catch (error) {                    
+        console.log('getAllCrypto err ', error);
+        }
+    }
     useEffect(() => {
         getAllCrypto();
     }, [])
 
     return (
-        <Row>
-            <h1>Crypto</h1>
+        <Row style={{ padding: "0 10vmin" }}>
+          <h1 style={{ textAlign: "center" }}>Crypto</h1>
+          <ul>
+            {crypto.map((c) => (
+              <li key={c.id}>
+                Name: {c.name}
+                <br />
+                Symbol: {c.symbol}
+                <br />
+                Price: {c.price}
+                <br />
+                Circulating Supply: {c.circulating_supply}
+                {/* <ul>
+                  Pokemon
+                  {move.pokemon.map((poke) => (
+                    <li>{poke}</li>
+                  ))}
+                </ul> */}
+              </li>
+            ))}
+          </ul>
         </Row>
-    );
-}
+      );
+    };

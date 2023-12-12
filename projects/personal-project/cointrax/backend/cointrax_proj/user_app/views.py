@@ -1,5 +1,4 @@
 from rest_framework.views import APIView
-import logging
 from .serializers import User, UserSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -15,7 +14,7 @@ from django.contrib.auth import authenticate
 # Create your views here.
 
 
-class Sign_up(APIView):
+class Signup(APIView):
     def post(self, request):
         try:
             data = request.data.copy()
@@ -33,7 +32,7 @@ class Sign_up(APIView):
             )
 
 
-class Log_in(APIView):
+class Login(APIView):
     def post(self, request):
         try:
             email = request.data["email"]
@@ -42,9 +41,10 @@ class Log_in(APIView):
             if user:
                 token, created = Token.objects.get_or_create(user=user)
                 return Response({"client": user.email, "token": token.key})
-            return Response(
-                "Something went wrong creating a token", status=HTTP_400_BAD_REQUEST
-            )
+            else:
+                return Response(
+                    "No user matching provided credentials", status=HTTP_400_BAD_REQUEST
+                )
         except Exception as e:
             print(e)
             return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
@@ -55,7 +55,7 @@ class UserPermissions(APIView):
     permission_classes = [IsAuthenticated]
 
 
-class Log_out(UserPermissions):
+class Logout(UserPermissions):
     def post(self, request):
         request.user.auth_token.delete()
         return Response(status=HTTP_204_NO_CONTENT)

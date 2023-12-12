@@ -1,15 +1,15 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { api } from "../utilities.jsx";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import UserContext from "../components/UserContext.js";
+
 
 
 export const Register = () => {
   const navigate = useNavigate();
-  // const { setUser } = useContext(UserContext);
-  const [userName, setUserName] = useState("");
+
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [display_name, setDisplayName] = useState("");
 
@@ -18,26 +18,26 @@ export const Register = () => {
 
     try {
       console.log("Request Payload:", {
-        email: userName,
-        password: password,
-        display_name: display_name,
+        email,
+        password,
+        display_name,
       });
 
-      let response = await api.post("v1/users/signup/", {
-        email: userName,
-        password: password,
-        display_name: display_name,
+      const response = await api.post("v1/users/signup/", {
+        email,
+        password,
+        display_name,
       });
 
-      let user = response.data.user;
-      console.log(user)
+      let new_user = response.data.new_user;
+      console.log(new_user)
       let token = response.data.token;
       console.log(token)
+      console.log(`signup success, userEmail: ${email}, token: ${token}`)
       // Store the token securely (e.g., in localStorage or HttpOnly cookies)
       localStorage.setItem("token", token);
       api.defaults.headers.common["Authorization"] = `Token ${token}`;
 
-      // setUser(user);
       navigate("/login");
     } catch (error) {
       console.error("Registration failed:", error.message);
@@ -51,8 +51,8 @@ export const Register = () => {
         <Form.Control
           type="email"
           placeholder="Enter email"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
@@ -79,9 +79,9 @@ export const Register = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      </Form.Group> */}
 
       <Button variant="primary" type="submit">
         Submit

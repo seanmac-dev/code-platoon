@@ -4,18 +4,21 @@ import Row from "react-bootstrap/Row"
 import Menu from "./components/Menu.jsx"
 import { Outlet } from "react-router-dom"
 import './App.css'
-import RouterWithUserContext from './router.jsx'
+import { api } from "./utilities"
 
 function App() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    api.defaults.headers.common["Authorization"] = `Token ${token}`
+    console.log(`axios request authorization header set to: ${api.defaults.headers.common["Authorization"]}`);
+  }
   return (
-    <>
-       <Menu />
-        <Container>
-          <Row style={{ textAlign: "center" }}>
-          </Row>
-          <Outlet/>
-        </Container>
-    </>
+    <Container>
+      <Row style={{ textAlign: "center" }}>
+      </Row>
+      <Menu />
+      <Outlet/>
+    </Container>
   )
 }
 
