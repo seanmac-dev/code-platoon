@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from .models import User
+from .models import Crypto
 
 
-class UserSerializer(ModelSerializer):
+class CryptoSerializer(ModelSerializer):
     class Meta:
-        model = User
+        model = Crypto
         fields = "__all__"

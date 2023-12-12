@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+import logging
 from .serializers import User, UserSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -22,13 +23,13 @@ class Sign_up(APIView):
             new_user = User.objects.create_user(**data)
             new_token = Token.objects.create(user=new_user)
             return Response(
-                {"email": new_user.email, "token": new_token.key},
+                {"client": new_user.email, "token": new_token.key},
                 status=HTTP_201_CREATED,
             )
         except Exception as e:
             print(e)
             return Response(
-                "Hmm, something went wrong with signup", status=HTTP_400_BAD_REQUEST
+                "Something went wrong with signup", status=HTTP_400_BAD_REQUEST
             )
 
 
