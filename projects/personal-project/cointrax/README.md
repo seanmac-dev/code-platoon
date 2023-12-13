@@ -11,4 +11,4 @@ Features: - users can log into their account (authentication) - users can view a
         -update watchlists
         -delete watchlists
 
-![Alt text](schema_design.png)
+![Alt text](cointrax_db_schema.png)

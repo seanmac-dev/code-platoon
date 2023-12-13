@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "channels",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     "watchlist_app",
     "corsheaders",
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -74,8 +74,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "cointrax_proj.wsgi.application"
 
+WSGI_APPLICATION = "cointrax_proj.wsgi.application"
+ASGI_APPLICATION = "cointrax_proj.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
