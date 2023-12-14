@@ -25,8 +25,8 @@ export const Crypto = () => {
   const [cryptoData, setCryptoData] = useState([]);
 
   useEffect(() => {
-    const apiKey = '2ecef65af5feb7de75f269b262f0a71a0748adf1862622cff68ef01025984218'; // Replace with your actual API key
-    const wsUrl = `wss://streamer.cryptocompare.com/v2?api_key=${apiKey}`;
+   
+    const wsUrl = `ws://127.0.0.1:8000/ws/crypto/`;
 
     const socket = new WebSocket(wsUrl);
 

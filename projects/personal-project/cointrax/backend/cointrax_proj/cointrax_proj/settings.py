@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "channels",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "channels",
     "rest_framework.authtoken",
     "rest_framework",
     "user_app",
@@ -75,8 +75,8 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = "cointrax_proj.wsgi.application"
 ASGI_APPLICATION = "cointrax_proj.asgi.application"
+WSGI_APPLICATION = "cointrax_proj.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
