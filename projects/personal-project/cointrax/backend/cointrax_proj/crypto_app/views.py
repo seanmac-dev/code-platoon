@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404
 from .models import Crypto  # imports the Pokemon model
 from .serializers import CryptoSerializer  # imports the PokemonSerializer
-from django.http import (
-    JsonResponse,
-)  # Our responses will now be returned in JSON so we should utilize a JsonResponse
+
+# from django.http import (
+#     JsonResponse,
+# )  # Our responses will now be returned in JSON so we should utilize a JsonResponse
 
 # Import both APIView and Response from DRF
 from rest_framework.views import APIView

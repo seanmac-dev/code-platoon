@@ -1,6 +1,6 @@
 import Row from "react-bootstrap/Row"
 import { useEffect, useState } from "react";
-import { api } from "../utilities";
+// import { api } from "../utilities";
 
 // TODO: make axios call to django api to get crypto data
 // using api/v1/crypto

@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 import websockets
-from .models import Crypto
+from crypto_app.models import Crypto
 
 
 class CryptoConsumer(AsyncWebsocketConsumer):
@@ -33,7 +33,7 @@ class CryptoConsumer(AsyncWebsocketConsumer):
         )
 
     async def fetch_and_broadcast_data(self):
-        api_key = "f0d2cf94dabf53bd48216f55644d65faca39a1b185075927bb5946ffeed27bed"
+        api_key = 
         async with websockets.connect(
             f"wss://streamer.cryptocompare.com/v2?api_key={api_key}"
         ) as websocket:
