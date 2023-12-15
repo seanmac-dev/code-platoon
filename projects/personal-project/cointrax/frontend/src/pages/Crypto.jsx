@@ -22,7 +22,9 @@ import { useEffect, useState } from "react";
 //         getAllCrypto();
 //     }, [])
 export const Crypto = () => {
-  const [cryptoData, setCryptoData] = useState([]);
+  const [cryptoDataList, setCryptoDataList] = useState([]);
+  const [cryptoName, setCryptoName] = useState([])
+ 
 
   useEffect(() => {
    
@@ -42,8 +44,21 @@ export const Crypto = () => {
       console.log('Received data:', data);
 
       // Update your component state with the received data
-      setCryptoData((prevData) => [...prevData, data]);
-    });
+      setCryptoDataList((prevCryptoDataList) => {
+        // Find the index of the cryptocurrency data in the list
+        const index = prevCryptoDataList.findIndex(
+          (cryptoData) => cryptoData.FROMSYMBOL === data.data.FROMSYMBOL
+        );
+      
+        if (index !== -1) {
+          // If the cryptocurrency data exists in the list, update it
+          prevCryptoDataList[index] = data.data;
+          return [...prevCryptoDataList]; // Create a new array to trigger a re-render
+        } else {
+          // If the cryptocurrency data doesn't exist, add it to the list
+          return [...prevCryptoDataList, data.data];
+        }
+      });
 
     socket.addEventListener('close', (event) => {
       console.log('WebSocket closed:', event);
@@ -53,13 +68,12 @@ export const Crypto = () => {
     return () => {
       socket.close();
     };
+  })
   }, []);
 
   const subscribeToChannels = (socket) => {
     const subscriptions = [
-      '5~CCCAGG~BTC~USD',
-      '0~Coinbase~ETH~USD',
-      '2~Binance~BTC~USDT',
+      "5~CCCAGG~BTC~USD", "5~CCCAGG~ETH~USD","5~CCCAGG~XRP~USD" 
     ];
 
     const subscribeMessage = {
@@ -70,29 +84,25 @@ export const Crypto = () => {
     // Send the subscription message to the WebSocket
     socket.send(JSON.stringify(subscribeMessage));
   };
-
-    return (
-        <Row style={{ padding: "0 10vmin" }}>
-          <h1 style={{ textAlign: "center" }}>Crypto</h1>
-          <ul>
-            {cryptoData.map((c, index) => (
-              <li key={index}>
-                Name: {c.name}
-                <br />
-                Symbol: {c.symbol}
-                <br />
-                Price: {c.price}
-                <br />
-                Circulating Supply: {c.circulating_supply}
-                {/* <ul>
-                  Pokemon
-                  {move.pokemon.map((poke) => (
-                    <li>{poke}</li>
-                  ))}
-                </ul> */}
-              </li>
-            ))}
-          </ul>
-        </Row>
-      );
-    };
+  
+  return (
+    <Row style={{ padding: "0 10vmin" }}>
+    <h1 style={{ textAlign: "center" }}>Crypto</h1>
+    <ul>
+      {cryptoDataList && cryptoDataList.map((cryptoData) => (
+        <div key={cryptoData.FROMSYMBOL}>
+          <h3>{cryptoData.FROMSYMBOL}</h3>
+          <li>
+            Price: {cryptoData.PRICE}
+            <br />
+            Daily Volume (last 24 hours): {cryptoData.VOLUME24HOUR}
+            <br />
+            Market Cap: {cryptoData.CURRENTSUPPLYMKTCAP}
+            <br />
+          </li>
+        </div>
+      ))}
+    </ul>
+  </Row>
+  );
+}

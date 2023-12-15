@@ -16,11 +16,7 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cointrax_proj.settings")
 
 django_asgi = get_asgi_application()
-print("1")
 from crypto_app.routing import websocket_urlpatterns
-
-print("2")
-
 
 application = ProtocolTypeRouter(
     {
@@ -28,4 +24,3 @@ application = ProtocolTypeRouter(
         "websocket": AuthMiddlewareStack(URLRouter(websocket_urlpatterns)),
     }
 )
-print("3")

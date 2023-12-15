@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     # my apps
     "user_app",
     "crypto_app",
-    # "watchlist_app",
+    "watchlist_app",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
